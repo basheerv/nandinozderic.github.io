@@ -2,6 +2,13 @@
 layout: default
 ---
 
+{% assign months = "Januar|Februar|Marec|Aprl|Maj|Junij|Julij|Avgust|September|Oktober|November|December" | split: "|" %}
+{% assign m = page.date | date: "%-m" | minus: 1 %}
+{% assign day = page.date | date: "%d" %}
+{% assign month = months[m] %}
+{% assign year = page.date | date: "%Y" %}
+<!-- <span class="date">{{ day }}/{{ month }}/{{ year }}</span> -->
+
 <ul class="archive__items">
   {% for post in site.posts %}
     {% assign month = post.date | date: '%B %Y' %}
